@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 6) do
     t.string "name"
     t.string "adress"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -27,6 +29,8 @@ ActiveRecord::Schema.define(version: 6) do
     t.string "password_digest"
     t.string "adress"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "games", force: :cascade do |t|
@@ -35,14 +39,18 @@ ActiveRecord::Schema.define(version: 6) do
     t.decimal "sales_price"
     t.decimal "vendor_cost"
     t.integer "stock"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "purchaseorders", force: :cascade do |t|
+  create_table "purchase_orders", force: :cascade do |t|
     t.integer "game_id"
     t.integer "employee_id"
     t.integer "vendor_id"
     t.integer "quantity"
     t.decimal "cost"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sales", force: :cascade do |t|
@@ -50,12 +58,16 @@ ActiveRecord::Schema.define(version: 6) do
     t.integer "game_id"
     t.integer "employee_id"
     t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "vendors", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
