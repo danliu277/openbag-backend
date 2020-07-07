@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 6) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
-    t.string "genere"
+    t.string "genre"
     t.decimal "sales_price"
     t.decimal "vendor_cost"
     t.integer "stock"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 6) do
     t.integer "employee_id"
     t.integer "vendor_id"
     t.integer "quantity"
-    t.decimal "cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

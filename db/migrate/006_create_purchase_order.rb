@@ -5,7 +5,6 @@ class CreatePurchaseOrder < ActiveRecord::Migration[6.0]
       t.integer :employee_id
       t.integer :vendor_id
       t.integer :quantity
-      t.decimal :cost
       
       t.timestamps
     end
