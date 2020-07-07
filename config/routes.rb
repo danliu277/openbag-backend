@@ -8,4 +8,8 @@ Rails.application.routes.draw do
 
   get '/vendors', to: 'vendors#index'
   get '/vendors/:id', to: 'vendors#show'
+
+  get '/games', to: 'games#index'
+  get '/games/genre/:genre', to: 'games#genre'
+  get '/games/:id', to: 'games#show'
 end
