@@ -1,11 +1,11 @@
 class SalesController < ApplicationController
     def index
-        games = Game.all
-        render json: games
+        sales = Sales.all
+        render json: sales
     end
 
     def show
-        game = Game.find(params[:id])
-        render json: game
+        sale = Sales.find(params[:id])
+        render json: sale
     end
 end
