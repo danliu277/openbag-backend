@@ -6,6 +6,8 @@ class CreateGame < ActiveRecord::Migration[6.0]
       t.decimal :sales_price
       t.decimal :vendor_cost
       t.integer :stock
+      
+      t.timestamps
     end
   end
 end

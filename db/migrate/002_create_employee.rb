@@ -6,6 +6,8 @@ class CreateEmployee < ActiveRecord::Migration[6.0]
       t.string :password_digest
       t.string :adress
       t.string :email
+      
+      t.timestamps
     end
   end
 end

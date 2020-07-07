@@ -5,6 +5,8 @@ class CreateSales < ActiveRecord::Migration[6.0]
       t.integer :game_id
       t.integer :employee_id
       t.integer :quantity
+      
+      t.timestamps
     end
   end
 end
