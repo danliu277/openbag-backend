@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   get '/games', to: 'games#index'
   get '/games/genre/:genre', to: 'games#genre'
   get '/games/:id', to: 'games#show'
+
+  get '/sales', to: 'sales#index'
+  get '/sales/:id', to: 'sales#show'
 end
