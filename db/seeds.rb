@@ -18,8 +18,9 @@ Customer.destroy_all
 end
 
 10.times do
-    Employee.create(name: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, username: Faker::Internet.username, password_digest: '1')
+    Employee.create(name: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, username: Faker::Internet.username, password: '1')
 end
+Employee.create(name: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, username: '1', password: '1')
 
 10.times do
     Game.create(name: Faker::Game.title, genre: Faker::Game.genre, sales_price: rand(2) == 1 ? 40.00 : 60.00, vendor_cost: rand(2) == 1 ? 30.00 : 45.00)
