@@ -23,7 +23,7 @@ end
 Employee.create(name: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, username: '1', password: '1')
 
 10.times do
-    Game.create(name: Faker::Game.title, genre: Faker::Game.genre, sales_price: rand(2) == 1 ? 40.00 : 60.00, vendor_cost: rand(2) == 1 ? 30.00 : 45.00)
+    Game.create(name: Faker::Game.title, genre: Faker::Game.genre, sales_price: rand(2) == 1 ? 40.00 : 60.00, vendor_cost: rand(2) == 1 ? 30.00 : 45.00, stock: rand(100), threshold: rand(100))
 end
 
 10.times do

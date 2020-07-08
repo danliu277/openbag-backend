@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 6) do
     t.decimal "sales_price"
     t.decimal "vendor_cost"
     t.integer "stock"
+    t.integer "threshold"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
