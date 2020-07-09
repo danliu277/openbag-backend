@@ -8,4 +8,9 @@ class CustomersController < ApplicationController
         customer = Customer.find(params[:id])
         render json: customer
     end
+
+    def search
+        customers = Customer.where('name like :input or email like :input', input:"%#{params[:input]}%")
+        render json:customers
+    end
 end
