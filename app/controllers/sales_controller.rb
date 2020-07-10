@@ -12,10 +12,10 @@ class SalesController < ApplicationController
     end
 
     def createSales
-        sales = params[:sales][:games].map do |game|
-            Sale.create(employee_id: params[:sales][:employee_id], customer_id: params[:sales][:customer_id], game_id: game[:id], quantity: 1)
-            game = Game.find(game[:id])
-            game.stock-=1
+        sales = params[:sales][:games].map do |sale_game|
+            Sale.create(employee_id: params[:sales][:employee_id], customer_id: params[:sales][:customer_id], game_id: sale_game[:id], quantity: 1)
+            game = Game.find(sale_game[:id])
+            game.stock-=sale_game[:quantity]
             game.save
         end
         render json: sales
