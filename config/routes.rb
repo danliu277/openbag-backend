@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/sales', to: 'sales#index'
   get '/sales/:id', to: 'sales#show'
+  post '/sales', to: 'sales#createSales'
 
   get '/purchase_orders', to: 'purchase_orders#index'
   get '/purchase_orders/:id', to: 'purchase_orders#show'
