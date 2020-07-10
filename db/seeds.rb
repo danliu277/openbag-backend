@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 PurchaseOrder.destroy_all
-Sales.destroy_all
+Sale.destroy_all
 Vendor.destroy_all
 Game.destroy_all
 Employee.destroy_all
@@ -53,5 +53,5 @@ end
     employee_offset = rand(Employee.count)
     employee_record = Employee.offset(employee_offset).first
 
-    Sales.create(game: game_record, customer: customer_record, employee: employee_record, quantity: Faker::Number.number(digits: 1))
+    Sale.create(game: game_record, customer: customer_record, employee: employee_record, quantity: Faker::Number.number(digits: 1))
 end

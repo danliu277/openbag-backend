@@ -1,4 +1,4 @@
-class CreateSales < ActiveRecord::Migration[6.0]
+class CreateSale < ActiveRecord::Migration[6.0]
   def change
     create_table :sales do |t|
       t.integer :customer_id
