@@ -12,7 +12,22 @@ class SalesController < ApplicationController
     end
 
     def top_five
-        games = Hash[Sale.group(:game_id).count.sort_by{|k,v| -v}.first(3)].map{|k,v| {'game'=>Game.find(k),'count'=>v}}
+        games = Hash[Sale.group(:game_id).count.sort_by{|k,v| -v}.first(3)].map do |k, v|
+            today = Date.today
+            {
+                'game' => Game.find(k),
+                'sales' => [0,1,2,3,4,5,6,7,8,9,10,11].map do |x|
+                    new_date = today.prev_month(x)
+                    date_range = new_date.beginning_of_month..new_date.end_of_month
+                    {
+                        'date': "#{Date::MONTHNAMES[new_date.month]}-#{new_date.year}",
+                        'sales': Sale.where(:created_at =>  date_range, game_id: k).count
+                    }
+                end
+            }
+        end
+        # games = Sale.where(game_id: Game.first.id)
+
         render json: games
     end
 
