@@ -13,6 +13,8 @@ Game.destroy_all
 Employee.destroy_all
 Customer.destroy_all
 
+Employee.create(name: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, username: '1', password: '1')
+
 10.times do
     Customer.create(name: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email)
 end
@@ -20,7 +22,6 @@ end
 10.times do
     Employee.create(name: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, username: Faker::Internet.username, password: '1')
 end
-Employee.create(name: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, username: '1', password: '1')
 
 10.times do
     Game.create(name: Faker::Game.title, genre: Faker::Game.genre, sales_price: rand(2) == 1 ? 40.00 : 60.00, vendor_cost: rand(2) == 1 ? 30.00 : 45.00, stock: rand(100), threshold: rand(100))
@@ -43,7 +44,7 @@ end
     PurchaseOrder.create(game: game_record, vendor: vendor_record, employee: employee_record, quantity: Faker::Number.number(digits: 3))
 end
 
-5.times do
+100.times do
     game_offset = rand(Game.count)
     game_record = Game.offset(game_offset).first
 
@@ -53,5 +54,5 @@ end
     employee_offset = rand(Employee.count)
     employee_record = Employee.offset(employee_offset).first
 
-    Sale.create(game: game_record, customer: customer_record, employee: employee_record, quantity: Faker::Number.number(digits: 1))
+    Sale.create(game: game_record, customer: customer_record, employee: employee_record, quantity: Faker::Number.number(digits: 1), created_at: Faker::Date.backward(days: 365))
 end
