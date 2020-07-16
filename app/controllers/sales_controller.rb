@@ -11,6 +11,11 @@ class SalesController < ApplicationController
         render json: sale
     end
 
+    def top_five
+        games = Hash[Sale.group(:game_id).count.sort_by{|k,v| -v}.first(3)].keys.map{|id| Game.find(id)}
+        render json: games
+    end
+
     def createSales
         sales = params[:sales][:games].map do |sale_game|
             Sale.create(employee_id: params[:sales][:employee_id], customer_id: params[:sales][:customer_id], game_id: sale_game[:id], quantity: sale_game[:quantity])

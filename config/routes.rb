@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/games/:id', to: 'games#show'
 
   get '/sales', to: 'sales#index'
+  get '/sales/top_five', to: 'sales#top_five'
   get '/sales/:id', to: 'sales#show'
   post '/sales', to: 'sales#createSales'
 
