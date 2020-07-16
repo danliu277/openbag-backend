@@ -12,7 +12,7 @@ class SalesController < ApplicationController
     end
 
     def top_five
-        games = Hash[Sale.group(:game_id).count.sort_by{|k,v| -v}.first(3)].map do |k, v|
+        games = Hash[Sale.group(:game_id).count.sort_by{|k,v| -v}.first(5)].map do |k, v|
             today = Date.today
             {
                 'game' => Game.find(k),
@@ -26,7 +26,6 @@ class SalesController < ApplicationController
                 end
             }
         end
-        # games = Sale.where(game_id: Game.first.id)
 
         render json: games
     end
