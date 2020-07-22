@@ -22,4 +22,5 @@ Rails.application.routes.draw do
 
   get '/purchase_orders', to: 'purchase_orders#index'
   get '/purchase_orders/:id', to: 'purchase_orders#show'
+  post '/purchase_orders', to: 'purchase_orders#create_purchase_orders'
 end
