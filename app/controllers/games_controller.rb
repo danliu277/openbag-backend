@@ -12,5 +12,5 @@ class GamesController < ApplicationController
     def genre
         games = Game.where(genre: params[:genre])
         render json: games
-    end\
+    end
 end
