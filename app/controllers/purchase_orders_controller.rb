@@ -14,7 +14,12 @@ class PurchaseOrdersController < ApplicationController
     def create_purchase_orders
         purchase_orders = []
         params['purchaseOrders'].each do |po|
-            purchase_orders.push(PurchaseOrder.create(po))
+            purchase_orders.push(PurchaseOrder.create(
+                game_id: po['game_id'],
+                employee_id: po['employee_id'],
+                quantity: po['quantity'],
+                vendor_id: po['vendor_id']
+            ))
         end
         render json: purchase_orders
     end
